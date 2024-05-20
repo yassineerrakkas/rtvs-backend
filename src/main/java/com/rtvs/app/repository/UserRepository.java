@@ -1,6 +1,6 @@
-package com.rtvs.app.Repository;
+package com.rtvs.app.repository;
 
-import com.rtvs.app.Model.User;
+import com.rtvs.app.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

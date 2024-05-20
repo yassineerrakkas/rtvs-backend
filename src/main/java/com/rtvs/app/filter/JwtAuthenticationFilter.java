@@ -1,6 +1,7 @@
-package com.rtvs.app.Config;
+package com.rtvs.app.filter;
 
 
+import com.rtvs.app.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

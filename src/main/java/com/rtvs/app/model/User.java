@@ -1,4 +1,4 @@
-package com.rtvs.app.Model;
+package com.rtvs.app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
