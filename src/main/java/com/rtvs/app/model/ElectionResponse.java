@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class ElectionResponse {
-    private String voteMsg;
+    private String message;
 }

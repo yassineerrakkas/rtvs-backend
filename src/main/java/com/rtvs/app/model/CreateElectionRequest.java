@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 public class CreateElectionRequest {
     private String title;
-    private List<Position> positions;
+    private List<Election.Position> positions;
     private Date expiringDate;
     private String creatorEmail;
 }

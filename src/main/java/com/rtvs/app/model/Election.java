@@ -23,35 +23,27 @@ public class Election {
     private List<Position> positions;
     private Date expiringDate;
     private String creatorEmail;
-}
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-class Candidate {
-    private String firstName;
-    private String lastName;
-    private int numberOfVotes;
-}
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-class Position {
-    private String label;
-    private List<Candidate> candidates = new ArrayList<>();
-
-    public boolean hasOneCandidate() {
-        return candidates.size() > 1;
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Candidate {
+        private String firstName;
+        private String lastName;
+        private int numberOfVotes;
     }
 
-    public void addCandidate(Candidate candidate) {
-        candidates.add(candidate);
-    }
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class Position {
+        private String label;
+        private List<Candidate> candidates = new ArrayList<>();
 
-    public void removeCandidate(Candidate candidate) {
-        candidates.remove(candidate);
+        public boolean hasOneCandidate() {
+            return candidates.size() > 1;
+        }
     }
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ElectionService {
     private final ElectionRepository electionRepository;
-    public ElectionResponse createVote(CreateElectionRequest request){
+    public ElectionResponse createElection(CreateElectionRequest request){
         Election election = Election
                 .builder()
                 .title(request.getTitle())
@@ -20,7 +20,7 @@ public class ElectionService {
                 .expiringDate(request.getExpiringDate())
                 .build();
         electionRepository.save(election);
-        return ElectionResponse.builder().voteMsg("Election created").build();
+        return ElectionResponse.builder().message("Election Created").build();
 
     }
 

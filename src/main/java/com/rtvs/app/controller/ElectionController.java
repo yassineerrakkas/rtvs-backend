@@ -17,6 +17,6 @@ public class ElectionController {
             @RequestBody CreateElectionRequest request
     ){
         System.out.println(request.getCreatorEmail() + " creating a new vote");
-        return ResponseEntity.ok(electionService.createVote(request));
+        return ResponseEntity.ok(electionService.createElection(request));
     }
 }
