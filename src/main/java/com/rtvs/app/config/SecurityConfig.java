@@ -26,7 +26,7 @@ public class SecurityConfig {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/auth/**").permitAll())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/user/**").authenticated())
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/admin/**").authenticated())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/elections/**").authenticated())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
