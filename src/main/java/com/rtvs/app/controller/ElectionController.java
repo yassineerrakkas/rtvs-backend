@@ -2,6 +2,7 @@ package com.rtvs.app.controller;
 
 import com.rtvs.app.model.CreateElectionRequest;
 import com.rtvs.app.model.ElectionResponse;
+import com.rtvs.app.model.VoteRequest;
 import com.rtvs.app.service.ElectionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,4 +20,9 @@ public class ElectionController {
         System.out.println(request.getCreatorEmail() + " creating a new vote");
         return ResponseEntity.ok(electionService.createElection(request));
     }
+    @PostMapping("/vote")
+    public ElectionResponse castVote(@RequestBody VoteRequest request) {
+        return electionService.vote(request);
+    }
+
 }
