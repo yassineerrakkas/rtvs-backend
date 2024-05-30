@@ -24,6 +24,8 @@ public class Election {
     private List<Position> positions;
     private Date expiringDate;
     private String creatorEmail;
+    private List<String> allowedVoterEmails; // List of allowed voter emails
+    private List<String> voters; // List to keep track of who has voted
 
     @Data
     @Builder
@@ -69,7 +71,14 @@ public class Election {
         }
     }
 
-    public boolean vote(List<VoteRequest.PositionVote> positionVotes) {
+    public boolean vote(String voterEmail, List<VoteRequest.PositionVote> positionVotes) {
+        if (!allowedVoterEmails.contains(voterEmail)) {
+            return false; // Voter not allowed
+        }
+        if (voters.contains(voterEmail)) {
+            return false; // Voter has already voted
+        }
+
         for (VoteRequest.PositionVote positionVote : positionVotes) {
             Optional<Position> positionOpt = positions.stream()
                     .filter(position -> position.getLabel().equals(positionVote.getPositionLabel()))
@@ -101,6 +110,8 @@ public class Election {
                 return false; // Position not found
             }
         }
+
+        voters.add(voterEmail); // Mark voter as having voted
         return true; // All votes successfully cast
     }
 }
